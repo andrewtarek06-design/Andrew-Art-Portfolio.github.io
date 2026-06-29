@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrew Tarek — Art Director & AI Artist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Space+Mono&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0b0d;--ink:#ece7df;--mut:#867f74;--acc:#e9531c;--line:rgba(236,231,223,.12);
+  --s:'Fraunces',Georgia,serif;--m:'Space Mono',monospace;--g:'Hanken Grotesk',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--g);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(16px,3vw,40px);mix-blend-mode:difference;color:#fff}
+.nav .b{font-family:var(--s);font-size:18px}
+.nav .lk{display:flex;gap:16px;font-family:var(--m);font-size:11px;text-transform:uppercase;letter-spacing:.07em}
+.nav .lk a{color:#fff;text-decoration:none;opacity:.74;cursor:pointer}
+@media(max-width:760px){.nav .lk a:not(.cta){display:none}}
+.cue{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:60;font-family:var(--m);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);transition:opacity .4s}
+.pbar{position:fixed;right:clamp(16px,3vw,40px);bottom:26px;z-index:60;width:130px;height:2px;background:rgba(236,231,223,.18)}.pbar i{display:block;height:100%;width:0;background:var(--acc)}
+/* opening (hero + montage + climb, merged) */
+.opening{height:380vh;position:relative}
+.opening .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;perspective:1300px}
+.opening .ember{position:absolute;z-index:0;width:70vw;height:70vw;max-width:760px;max-height:760px;border-radius:50%;background:radial-gradient(circle,rgba(233,83,28,.3),transparent 62%);filter:blur(100px);left:50%;top:54%;transform:translate(-50%,-50%);opacity:.5;animation:breathe 9s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.4}50%{opacity:.6}}
+.montage{position:absolute;inset:0;z-index:1;transform-style:preserve-3d}
+.montage .mz{position:absolute;top:50%;left:50%;width:clamp(280px,42vw,540px);aspect-ratio:16/9;transform:translate(-50%,-50%);border:8px solid #1b1916;border-radius:8px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);will-change:transform,opacity}
+.montage .mz img{width:100%;height:100%;object-fit:cover}
+.opening .pin::after{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(60% 55% at 50% 50%,rgba(12,11,13,.6),transparent 72%);pointer-events:none}
+.htxt{position:absolute;z-index:5;text-align:center;padding:0 20px;will-change:transform,opacity}
+.htxt .eye{font-family:var(--m);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-bottom:18px;animation:ri .8s .05s both}
+.htxt h1{font-family:var(--s);font-weight:300;font-size:clamp(54px,12vw,180px);line-height:.9;letter-spacing:-.02em;text-shadow:0 0 80px rgba(233,83,28,.5),0 0 28px rgba(233,83,28,.3);animation:ri 1s .2s both}
+.htxt h1 em{font-style:italic;color:var(--mut)}
+.htxt .sub{margin-top:20px;font-size:clamp(15px,1.7vw,19px);opacity:.85;animation:ri .9s .45s both}
+.htxt .svcs{margin-top:24px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.htxt .svcs span{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1px solid rgba(233,83,28,.42);border-radius:30px;padding:7px 13px;background:rgba(233,83,28,.07);box-shadow:0 0 26px rgba(233,83,28,.2);animation:ri .7s both}
+.htxt .svcs span:nth-child(1){animation-delay:.62s}.htxt .svcs span:nth-child(2){animation-delay:.7s}.htxt .svcs span:nth-child(3){animation-delay:.78s}.htxt .svcs span:nth-child(4){animation-delay:.86s}.htxt .svcs span:nth-child(5){animation-delay:.94s}.htxt .svcs span:nth-child(6){animation-delay:1.02s}
+@keyframes ri{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.clayer{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;opacity:0;will-change:opacity,transform}
+.extitle{font-family:var(--s);font-weight:300;font-size:clamp(54px,12vw,180px);line-height:.9;letter-spacing:-.02em;text-align:center;margin-bottom:clamp(6px,1.2vw,16px);text-shadow:0 0 70px rgba(233,83,28,.4);opacity:1}
+.extitle em{font-style:italic;color:var(--mut)}
+.track{position:relative;height:clamp(150px,18vw,220px);width:100%}
+.exit{position:absolute;top:50%;left:50%;width:min(560px,82vw);transform:translate(-50%,-50%);text-align:center;will-change:transform,opacity;opacity:0}
+.exit .yr{font-family:var(--m);font-size:12px;color:var(--acc);letter-spacing:.14em;margin-bottom:10px}
+.exit b{font-family:var(--s);font-weight:300;font-size:clamp(26px,4.2vw,56px);display:block;line-height:.98}
+.exit .ro{margin-top:10px;font-family:var(--m);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc)}
+.base{position:absolute;left:8vw;right:8vw;bottom:15vh;height:1px;background:var(--line)}
+.base .fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--acc)}
+.base .nd{position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--mut);transform:translateX(-50%);transition:all .3s}
+.base .nd.on{background:var(--acc);border-color:var(--acc);box-shadow:0 0 0 4px rgba(233,83,28,.16)}
+/* sections */
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+section{padding:clamp(22px,3vw,48px) 0;position:relative}
+.shead{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:16px;margin-bottom:clamp(8px,1.5vw,18px);flex-wrap:wrap;gap:10px}
+.shead .rn{font-family:var(--m);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+.shead h2{font-family:var(--s);font-weight:300;font-size:clamp(34px,6vw,76px);line-height:.95;letter-spacing:-.02em}.shead h2 em{font-style:italic;color:var(--mut)}
+.shead .n{font-family:var(--m);font-size:11px;text-transform:uppercase;color:var(--mut)}
+.wheel{position:relative;height:clamp(270px,30vw,400px);perspective:1500px;cursor:grab;touch-action:pan-y}.wheel:active{cursor:grabbing}
+.witem{position:absolute;top:50%;left:50%;width:clamp(200px,25vw,340px);aspect-ratio:16/9;border:7px solid #1b1916;border-radius:9px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55);will-change:transform,opacity;text-decoration:none;color:inherit}
+.witem img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.witem .cap{position:absolute;inset:auto 0 0 0;padding:10px 12px;background:linear-gradient(transparent,rgba(5,4,3,.85));pointer-events:none}
+.witem .cap b{font-family:var(--s);font-weight:400;font-size:14px;display:block}.witem .cap span{font-family:var(--m);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.films{display:grid;grid-template-columns:1fr;gap:18px}@media(min-width:760px){.films{grid-template-columns:1fr 1fr}}
+.vid{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--line);border-radius:9px;background:#000;opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}.vid.in{opacity:1;transform:none}
+.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vid .povr{position:absolute;inset:0;cursor:pointer;background:linear-gradient(transparent 55%,rgba(5,4,3,.6))}
+.vid .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;border:1px solid rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);transition:.4s}
+.vid .play::after{content:"";border-left:17px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+.vid .povr:hover .play{background:rgba(233,83,28,.32);border-color:var(--acc)}
+.vid .cap{position:absolute;inset:auto 0 0 0;z-index:4;padding:16px 18px;pointer-events:none}
+.vid .cap b{font-family:var(--s);font-size:clamp(18px,2.4vw,26px)}.vid .cap span{display:block;font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-top:4px}
+.vid .cap a{pointer-events:auto;font-family:var(--m);font-size:10px;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--acc);text-decoration:none}
+.foot{text-align:center;border-top:1px solid var(--line);padding:clamp(60px,9vw,120px) 0 70px;position:relative;overflow:hidden}
+.foot::before{content:"";position:absolute;z-index:0;width:62vw;height:62vw;max-width:680px;max-height:680px;border-radius:50%;background:radial-gradient(circle,rgba(233,83,28,.16),transparent 64%);filter:blur(90px);left:50%;top:42%;transform:translate(-50%,-50%);animation:breathe 9s ease-in-out infinite;pointer-events:none}
+.foot>*{position:relative;z-index:1}
+.foot h2{font-family:var(--s);font-weight:300;font-size:clamp(40px,9vw,130px);line-height:.95}.foot h2 em{font-style:italic;color:var(--acc);display:inline-block;animation:floaty 4.5s ease-in-out infinite,glowpulse 3.6s ease-in-out infinite}
+.foot h2 .w{display:inline-block;opacity:0;transform:translateY(42px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.foot h2.in .w{opacity:1;transform:translateY(0)}
+.foot h2.in .w:nth-child(2){transition-delay:.13s}.foot h2.in .w:nth-child(3){transition-delay:.26s}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(-1.2deg)}}
+@keyframes glowpulse{0%,100%{text-shadow:0 0 0 rgba(233,83,28,0)}50%{text-shadow:0 0 36px rgba(233,83,28,.55)}}
+.foot .lk{margin-top:26px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-family:var(--m);font-size:13px;text-transform:uppercase;letter-spacing:.06em}.foot .lk a{color:var(--ink);text-decoration:none;padding-bottom:4px;position:relative;border-bottom:1px solid var(--line);transition:color .3s}.foot .lk a::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.16,1,.3,1)}.foot .lk a:hover{color:var(--acc)}.foot .lk a:hover::after{transform:scaleX(1)}
+.foot .cp{margin-top:40px;font-family:var(--m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="nav"><span class="b">Andrew Tarek</span><nav class="lk"><a id="navexp">Experience</a><a href="#kv">Key Visuals</a><a href="#ad">Art Direction</a><a href="#films">AI Films</a><a class="cta" href="#contact">Contact</a></nav></div>
+<div class="cue" id="cue">scroll ↓</div>
+<div class="pbar"><i id="pbar"></i></div>
+
+<header class="opening" id="opening">
+  <div class="pin">
+    <div class="ember"></div>
+    <div class="montage" id="montage"></div>
+    <div class="clayer">
+      <h2 class="extitle" id="extitle">The <em>Climb.</em></h2>
+      <div class="track" id="track"></div>
+      <div class="base"><div class="fill" id="railfill"></div></div>
+    </div>
+    <div class="htxt" id="htxt">
+      <div class="eye">Art Director · AI Artist · Cairo / Riyadh / NY</div>
+      <h1>Andrew <em>Tarek.</em></h1>
+      <div class="sub">Branding, key visuals & AI films that don't sit still.</div>
+      <div class="svcs"><span>Brand Building</span><span>Key Visuals</span><span>AI Photoshoots</span><span>AI Films</span><span>Concept</span><span>Social</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="kv" class="wrap">
+    <div class="shead rv"><div><div class="rn">Selected Work</div><h2>Key <em>Visuals.</em></h2></div><span class="n">drag · hover to spin</span></div>
+    <div class="wheel" id="kvwheel"></div>
+  </section>
+  <section id="ad" class="wrap">
+    <div class="shead rv"><div><div class="rn">Selected Work</div><h2>Art <em>Direction.</em></h2></div><span class="n">drag · hover to spin</span></div>
+    <div class="wheel" id="adwheel"></div>
+  </section>
+  <section id="films" class="wrap">
+    <div class="shead rv"><div><div class="rn">In Motion</div><h2>AI <em>Films.</em></h2></div><span class="n">Generative · Motion</span></div>
+    <div class="films" id="filmgrid"></div>
+  </section>
+  <footer class="foot wrap" id="contact">
+    <h2 class="awords"><span class="w">Let's</span> <span class="w">make</span> <span class="w"><em>something.</em></span></h2>
+    <div class="lk rv"><a href="https://www.behance.net/AndrewTarek" target="_blank" rel="noopener">Behance</a><a href="https://instagram.com/Andrewtarekph" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/201225842599" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:andrewtarek06@gmail.com">Email</a></div>
+    <div class="cp rv">© 2026 Andrew Tarek — Art Director & AI Artist</div>
+  </footer>
+</main>
+<script>
+const CAREER=[['Glow Rank','Junior Designer'],['Objects','Junior Designer'],['Hera Leather Crafts','Brand Designer'],['Blue Holding','Mid-Level · GCC Pharma'],['TAC Universe','Senior → Team Lead'],['Andalusia Group','Art Director · GCC'],['The Blues Agency','Art Director'],['TAC Universe — Now','Art Director']];
+const KV=[['vox-cinemas','VOX Cinemas','Cinema','work/vox-cinemas.html'],['magic-planet','Magic Planet','Entertainment','work/magic-planet.html'],['takeda','Takeda','Pharma','work/takeda.html'],['tom-vr','Tom VR','Mall of Egypt','work/tom-vr.html'],['city-centre','City Centre','Retail','work/city-centre.html'],['maf-christmas','MAF Christmas','Seasonal','work/maf-christmas.html'],['ski-egypt','Ski Egypt','Mall of Egypt','work/ski-egypt.html'],['ziebart','Ziebart','Automotive','work/ziebart.html'],['solik','Teras — Nasr City','Real Estate','work/solik.html']];
+const AD=[['breadway','Breadway','','work/breadway.html'],['rotana','Rotana','','work/rotana.html'],['sunbulah','Sunbulah','','work/sunbulah.html'],['shefa-honey','Shefa Honey','','work/shefa-honey.html'],['bodiz','Bodiz','','work/bodiz.html'],['cfc','CFC','','work/cfc.html'],['granite','Granite','','work/granite.html'],['arabian-treasures','Arabian Treasures','','work/arabian-treasures.html'],['ship-crew','Ship & Crew','','work/ship-crew.html']];
+const FILMS=[['maf-worldcup','MAF × World Cup','work/maf-worldcup.html'],['ivein','iVein One','work/ivein.html']];
+const MZ=['vox-cinemas','magic-planet','solik','takeda','breadway','tom-vr','city-centre','rotana'];
+const montage=document.getElementById('montage');
+const mz=MZ.map(s=>{const f=document.createElement('figure');f.className='mz';f.innerHTML=`<img src="assets/img/${s}.webp" alt="">`;montage.appendChild(f);return f});const Mn=mz.length;
+const track=document.getElementById('track'),exBase=document.querySelector('.base'),railfill=document.getElementById('railfill'),extitle=document.getElementById('extitle');
+const EN=CAREER.length;
+const exItems=CAREER.map((c,i)=>{const d=document.createElement('div');d.className='exit';d.innerHTML=(i===0?'<div class="yr">2018</div>':i===EN-1?'<div class="yr">Now</div>':'')+`<b>${c[0]}</b><div class="ro">${c[1]}</div>`;track.appendChild(d);const nd=document.createElement('span');nd.className='nd';nd.style.left=(i/(EN-1))*100+'%';exBase.appendChild(nd);return{d,nd}});
+function card(slug,t,s,link){const tag=link?'a':'div';const href=link?`href="${link}"`:'';const cap=link?`${s} · case study ↗`:s;return`<${tag} class="witem" ${href}><img src="assets/img/${slug}.webp" alt="${t}" loading="lazy"><div class="cap"><b>${t}</b><span>${cap}</span></div></${tag}>`}
+function buildWheel(id,data,isAD){const wheel=document.getElementById(id);const N=data.length;const items=[];
+  data.forEach(d=>{const w=document.createElement('div');w.innerHTML=card(d[0],d[1],isAD?'Art Direction':d[2],d[3]);const e=w.firstElementChild;e.classList.add('witem');wheel.appendChild(e);items.push(e)});
+  let rot=Math.random()*6,speed=0.0015,target=0.0015,dragging=false,captured=false,lastX=0,moved=0,vel=0;
+  wheel.addEventListener('pointerenter',()=>target=0.0015);wheel.addEventListener('pointerleave',()=>{target=0.0015});
+  wheel.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;moved=0;vel=0});
+  wheel.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-lastX;lastX=e.clientX;moved+=Math.abs(dx);rot+=dx*0.0075;vel=dx*0.0075;if(moved>6&&!captured){try{wheel.setPointerCapture(e.pointerId)}catch(_){}captured=true}});
+  function endDrag(e){if(!dragging)return;dragging=false;speed=Math.max(-0.07,Math.min(0.07,vel));if(captured){try{wheel.releasePointerCapture(e.pointerId)}catch(_){}captured=false}}
+  wheel.addEventListener('pointerup',endDrag);wheel.addEventListener('pointercancel',endDrag);
+  items.forEach(it=>it.addEventListener('click',ev=>{if(moved>6)ev.preventDefault()}));
+  function fr(){if(!dragging)speed+=(target-speed)*0.035;rot+=speed;const Rx=wheel.clientWidth*0.34,tilt=34;
+    items.forEach((it,i)=>{const a=i*(2*Math.PI/N)+rot;const depth=Math.cos(a);it.style.transform=`translate(-50%,-50%) translate(${Math.sin(a)*Rx}px,${-depth*tilt}px) scale(${0.56+0.44*((depth+1)/2)})`;it.style.opacity=0.32+0.68*((depth+1)/2);it.style.zIndex=String(Math.round((depth+1)*100))});
+    requestAnimationFrame(fr)}fr();}
+buildWheel('kvwheel',KV,false);buildWheel('adwheel',AD,true);
+document.getElementById('filmgrid').innerHTML=FILMS.map(f=>`<div class="vid"><video preload="none" playsinline poster="assets/video/${f[0]}.jpg"><source src="assets/video/${f[0]}.mp4" type="video/mp4"></video><div class="povr"><div class="play"></div></div><div class="cap"><b>${f[1]}</b><span>AI Film · Motion &nbsp; <a href="${f[2]}">Case study ↗</a></span></div></div>`).join('');
+document.querySelectorAll('.vid .povr').forEach(ov=>ov.addEventListener('click',()=>{const v=ov.parentElement.querySelector('video');v.controls=true;v.play();ov.style.display='none'}));
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in')}}),{threshold:.16});
+document.querySelectorAll('.rv,.vid,.awords').forEach(e=>io.observe(e));
+const opening=document.getElementById('opening'),htxt=document.getElementById('htxt'),cue=document.getElementById('cue'),pbar=document.getElementById('pbar'),clayer=document.querySelector('.clayer');
+function onscroll(){const r=opening.getBoundingClientRect();const op=Math.min(1,Math.max(0,-r.top/(opening.offsetHeight-innerHeight)));
+  pbar.style.width=(Math.min(1,window.scrollY/(document.body.scrollHeight-innerHeight))*100)+'%';if(op>0.01)cue.style.opacity=0;
+  const h=Math.min(1,op/0.16);htxt.style.opacity=String(Math.max(0,1-h*1.1));htxt.style.transform=`translateY(${h*-46}px) scale(${1-h*.08})`;
+  const ml=op/0.36;mz.forEach((el,i)=>{const local=(ml*6.3)-i*0.72;const tz=(local-0.5)*1320;const o=(local<0||local>1)?0:Math.sin(local*Math.PI)*Math.min(1,op*8);el.style.transform=`translate(-50%,-50%) translateZ(${tz}px)`;el.style.opacity=o;el.style.zIndex=String(50-i)});
+  const ce=Math.min(1,Math.max(0,(op-0.38)/0.08));clayer.style.opacity=String(ce);clayer.style.transform=`translateY(${(1-ce)*42}px)`;
+  const pos=(op-0.48)/0.52*(EN-1);
+  exItems.forEach((o2,i)=>{const dd=i-pos;const ad=Math.abs(dd);o2.d.style.transform=`translate(calc(-50% + ${dd*64}vw),-50%) scale(${1-ad*.12})`;o2.d.style.opacity=Math.max(0,1-ad*1.05);o2.nd.classList.toggle('on',pos>=0&&i<=Math.round(pos))});
+  railfill.style.width=(Math.max(0,pos)/(EN-1))*100+'%';}
+onscroll();addEventListener('scroll',onscroll,{passive:true});addEventListener('resize',onscroll);
+document.getElementById('navexp').addEventListener('click',()=>{const t=opening.offsetTop+(opening.offsetHeight-innerHeight)*0.62;scrollTo({top:t,behavior:'smooth'})});
+</script>
+</body>
+</html>
